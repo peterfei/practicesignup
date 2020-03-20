@@ -1,0 +1,20 @@
+<view class="page">
+        <mp-msg type="success" title="操作成功">
+          <view slot="desc">您已成功报名参加本次活动</view>
+          <view slot="extend">
+              <view>建议您收藏本小程序 我们会不断更新功能，方便开展实践活动</view>
+              
+          </view>
+          <view slot="handle">
+              <button class="weui-btn" type="primary">查看我的报名信息</button>
+          </view>
+          <view slot="footer">
+              <view class="weui-footer__links">
+                  <navigator url="" class="weui-footer__link">i博导</navigator>
+              </view>
+              <view class="weui-footer__text">
+                Copyright © 2008-2020 ibodao.com
+              </view>
+          </view>
+        </mp-msg> 
+</view>

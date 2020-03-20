@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="page-bd">
+    <view class="page-bd-header">
+        <view class="page-bd-avator">
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+        
+    </view>
+    <view class="page-bd-content">
+         kkk
+    </view>
+  </view>
+</view>
