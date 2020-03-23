@@ -9,6 +9,11 @@ Page({
     
   },
 
+  showInfo:function(){
+    wx.navigateTo({
+      url: '../info/info',
+    })
+  }
   
 
 })

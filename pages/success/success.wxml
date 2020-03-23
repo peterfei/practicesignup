@@ -6,7 +6,7 @@
               
           </view>
           <view slot="handle">
-              <button class="weui-btn" type="primary">查看我的报名信息</button>
+              <button class="weui-btn" type="primary" bindtap="showInfo">查看我的报名信息</button>
           </view>
           <view slot="footer">
               <view class="weui-footer__links">
