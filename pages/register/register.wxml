@@ -7,9 +7,9 @@
         </view>
         <view class="page__bd">
             <mp-form id="form" >
-                <mp-cells ext-class="vcode-cells" >
+                <mp-cells ext-class="vcode-cells"  footer="">
 
-                      <mp-cell prop="mobile" title="手机号" ext-class="weui-cell_vcode">
+                      <mp-cell prop="mobile" title="手机号" ext-class="weui-cell_vcode" >
                           <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号"/>
                           <view slot="footer" class="weui-vcode-btn">获取验证码</view>
                       </mp-cell>

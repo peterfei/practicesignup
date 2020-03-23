@@ -6,7 +6,7 @@ Page({
   },
   
   onLoad: function () {
-    
+    console.log("===", JSON.stringify(app.globalData))
   },
 
   submitForm:function(){
