@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/upload-info/upload-info",
+    
     "pages/index/index",
     
     
-    
+    "pages/upload-info/upload-info",
 
     "pages/logs/logs",
     "pages/register/register",

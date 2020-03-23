@@ -23,6 +23,7 @@ Page({
           this.setData({
             userInfo: app.globalData.userInfo,
           })
+          this.initSex()
         } else if (this.data.canIUse){
           app.userInfoReadyCallback = res => {
             // debugger
@@ -38,16 +39,7 @@ Page({
               this.setData({
                 userInfo: res.userInfo,
               })
-              //性别初始化
-              this.data.sexes.forEach((sex,index)=>{
-                  console.log("gender from userInfo",this.data.userInfo.gender)
-                if(this.data.sexes[index].gender == this.data.userInfo.gender){
-                        let checkItem = "sexes["+index+"].checked";
-                        this.setData({[checkItem]:true,
-                            genderSelected:this.data.userInfo.gender
-                        })
-                  }
-              })
+              this.initSex()
             }
           })
         }
@@ -58,7 +50,19 @@ Page({
         })
 
   },
-
+  initSex:function(){
+    //性别初始化
+    this.data.sexes.forEach((sex, index) => {
+      console.log("gender from userInfo", this.data.userInfo.gender)
+      if (this.data.sexes[index].gender == this.data.userInfo.gender) {
+        let checkItem = "sexes[" + index + "].checked";
+        this.setData({
+          [checkItem]: true,
+          genderSelected: this.data.userInfo.gender
+        })
+      }
+    })
+  },
 
     formInputChange:function(e){
         this.setData({
@@ -109,6 +113,9 @@ Page({
           // })
         }
       })
+      setTimeout(() => {
+        reject('some error')
+      }, 60000)
     })
 
     },

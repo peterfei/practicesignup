@@ -5,7 +5,7 @@
               欢迎参加电商支持企业复工产教融合实践活动！为了更好地获取活动详情与后续证书等，需要您完成手机绑定，方可完成注册。
             </view>
         </view>
-        <view class="page__bd">
+        <view >
             <mp-form id="form" >
                 <mp-cells ext-class="vcode-cells"  footer="{{footertxt}}">
 
@@ -16,9 +16,9 @@
 
                   </mp-cells>
 
-                  <mp-cells ext-class="vcode"  >
+                  <mp-cells ext-class="vcode-cells"  >
 
-                      <mp-cell prop="verify_code" title="校验码" ext-class="weui-cell_vcode" >
+                      <mp-cell prop="verify_code" title="校验码" ext-class="cell_vcode" >
                           <input bindinput="bind_verify_code" data-field="verify_code" class="weui-input" placeholder="请输入校验码" />
                           
                       </mp-cell>
