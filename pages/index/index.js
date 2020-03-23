@@ -6,7 +6,9 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    alreadyRegisters:false,
+    showAuthText:"请先授权",
   },
   //事件处理函数
   bindViewTap: function() {
@@ -19,9 +21,10 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,
+        showAuthText:"请继续完成注册"
       })
-      wx.redirectTo({ url: '../register/register' })
+      // wx.redirectTo({ url: '../register/register' })
     } else if (this.data.canIUse){
 
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -30,9 +33,10 @@ Page({
         // debugger
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
+          showAuthText: "请继续完成注册"
         })
-        wx.redirectTo({ url: '../register/register' })
+        // wx.redirectTo({ url: '../register/register' })
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -54,6 +58,14 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    wx.redirectTo({ url: '../register/register' })
+  },
+  showInfo: function () {
+    wx.navigateTo({
+      url: '../info/info',
+    })
+  },
+  gotoRegister:function(){
     wx.redirectTo({ url: '../register/register' })
   }
 })

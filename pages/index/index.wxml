@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
+   
     <view class="content">
         <text>
            欢迎参加电商支持企业复工产教融合实践活动！为了更好地获取活动详情与后续证书等，需要您完成手机绑定，方可完成注册。
@@ -7,11 +8,59 @@
 
     </view>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确认授权 </button>
+    <button class="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确认授权 </button>
     <block wx:else>
-      <!--<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>-->
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
 
+</view> -->
+
+<view class="page">
+      <block wx:if="{{alreadyRegisters}}">
+        <mp-msg type="info" title="操作成功">
+          <view slot="desc">您已名参加本次活动</view>
+          <view slot="extend">
+              <view>建议您收藏本小程序 我们会不断更新功能，方便开展实践活动</view>
+              
+          </view>
+          <view slot="handle">
+              <button class="weui-btn" type="primary" bindtap="showInfo">查看我的报名信息</button>
+          </view>
+          <view slot="footer">
+              <view class="weui-footer__links">
+                  <navigator url="" class="weui-footer__link">i博导</navigator>
+              </view>
+              <view class="weui-footer__text">
+                Copyright © 2008-2020 ibodao.com
+              </view>
+          </view>
+        </mp-msg> 
+     
+      </block>
+        <block wx:else>
+            
+            <mp-msg type="info" title="{{showAuthText}}">
+            
+            <view slot="extend">
+                <view>欢迎参加电商支持企业复工产教融合实践活动！为了更好地获取活动详情与后续证书等，需要您完成手机绑定，方可完成注册。</view>
+                
+            </view>
+            <view slot="handle">
+                <button   class="weui-btn" type="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确认授权 </button>
+                <button   class="weui-btn" type="primary" wx:if="{{canIUse&&hasUserInfo}}" bindtap="gotoRegister"> 继续注册 </button>
+            </view>
+            
+            <view slot="footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">i博导</navigator>
+                </view>
+                <view class="weui-footer__text">
+                  Copyright © 2008-2020 ibodao.com
+                </view>
+            </view>
+          </mp-msg> 
+        </block>
+        
 </view>

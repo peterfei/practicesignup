@@ -1,25 +1,30 @@
-/**index.wxss**/
-.content{
-    display: flex;
-}
-.content > text{
-    align-items:center;
-    font-size: 32rpx;
-    margin:30rpx;
-}
-.userinfo {
+/* pages/success/success.wxss */
+.page{
+  height: 100vh;
+  /* background-color: blue; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.page-hd{
+    align-self:center;
+    display: flex;
+    /* background-color: red; */
+    width: 80%;
+    flex: 1;
 }
+.page-hd-title{
+  align-self: center;
+  /* background-color: orange; */
+  display:flex;
+  width:100%;
+  flex-direction: column;
+}
+.page-hd-title .page-bd-desc-text{
+  align-self: center;
 
-.userinfo-nickname {
-  color: #aaa;
+}
+.page-bd{
+  flex:1;
 }
