@@ -54,11 +54,14 @@ Page({
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    wx.redirectTo({ url: '../register/register' })
+    if (e.detail.userInfo){
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+      wx.redirectTo({ url: '../register/register' })
+    }
+    
   },
   showInfo: function () {
     wx.navigateTo({

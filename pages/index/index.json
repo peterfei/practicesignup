@@ -7,5 +7,5 @@
     "mp-uploader": "../../miniprogram/uploader/uploader",
     "mp-msg": "../../miniprogram/msg/msg"
   },
-  "navigationBarTitleText": "授权登录"
+  "navigationBarTitleText": ""
 }
