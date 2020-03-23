@@ -17,9 +17,9 @@
                 </mp-cell>
 
             </mp-cells>
-            <mp-cells ext-class="vcode-cells" footer="实践证书中会使用，请正确填写">
-                <mp-cell prop="cid" title="身份证号" ext-class="">
-                    <input bindinput="formInputChange" data-field="cid" class="weui-input" placeholder="请输入您的身份证号"/>
+            <mp-cells ext-class="id_card" footer="实践证书中会使用，请正确填写">
+                <mp-cell prop="id_card" title="身份证号" ext-class="">
+                    <input bindinput="formInputChange" data-field="idCard" class="weui-input" placeholder="请输入您的身份证号"/>
                 </mp-cell>
 
             </mp-cells>
@@ -27,7 +27,7 @@
             <mp-cells ext-class="vcode-cells" >
                 <mp-cell prop="sex" title="性别" ext-class="">
                      <radio-group class="radio-group" bindchange="radioChange">
-                        <radio class="radio" wx:for-items="{{sexes}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                        <radio class="radio" wx:for-items="{{sexes}}" wx:key="name" value="{{item.gender}}" checked="{{item.checked}}">
                             <text>{{item.value}}</text>
                         </radio>
                     </radio-group>
@@ -35,14 +35,14 @@
             </mp-cells>
 
             <mp-cells ext-class="vcode-cells" >
-                <mp-cell prop="school" title="所在院校" ext-class="">
-                  <input bindinput="formInputChange" data-field="school" class="weui-input" placeholder="所在院校"/>   
+                <mp-cell prop="school_name" title="所在院校" ext-class="">
+                  <input bindinput="formInputChange" data-field="schoolName" class="weui-input" placeholder="所在院校"/>   
                 </mp-cell>
             </mp-cells>
 
             <mp-cells ext-class="vcode-cells" >
-                <mp-cell prop="school" title="入学年份" ext-class="">
-                  <input bindinput="formInputChange" data-field="school-date" class="weui-input" placeholder="入学年份"/>   
+                <mp-cell prop="school-date" title="入学年份" ext-class="">
+                  <input bindinput="formInputChange" data-field="schoolDate" class="weui-input" placeholder="入学年份"/>   
                 </mp-cell>
             </mp-cells>
 

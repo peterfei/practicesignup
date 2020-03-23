@@ -1,8 +1,10 @@
 {
   "pages": [
-
-    "pages/index/index",
     "pages/upload-info/upload-info",
+    "pages/index/index",
+    
+    
+    
 
     "pages/logs/logs",
     "pages/register/register",

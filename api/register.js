@@ -41,5 +41,13 @@ class register{
     checkVerify(obj,header){
         return this._request.getRequest(this._baseUrl+"api/verify_codes/check",obj,header).then(res=>res.data)
     }
+
+    /**
+     * 图片上传接口
+     */
+    uploadImage(obj,header){
+        return this._request.postRequest(this._baseUrl+"api/upload",obj,header).then(res=>res.data)
+    }
+
 }
 export default register
