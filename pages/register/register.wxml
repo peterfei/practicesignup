@@ -7,11 +7,20 @@
         </view>
         <view class="page__bd">
             <mp-form id="form" >
-                <mp-cells ext-class="vcode-cells"  footer="">
+                <mp-cells ext-class="vcode-cells"  footer="{{footertxt}}">
 
                       <mp-cell prop="mobile" title="手机号" ext-class="weui-cell_vcode" >
-                          <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号"/>
-                          <view slot="footer" class="weui-vcode-btn">获取验证码</view>
+                          <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号" bindblur="bindblur"/>
+                          <view slot="footer" class="weui-vcode-btn" bindtap="send_verify_codes" >获取验证码</view>
+                      </mp-cell>
+
+                  </mp-cells>
+
+                  <mp-cells ext-class="vcode"  >
+
+                      <mp-cell prop="verify_code" title="校验码" ext-class="weui-cell_vcode" >
+                          <input bindinput="bind_verify_code" data-field="verify_code" class="weui-input" placeholder="请输入校验码" />
+                          
                       </mp-cell>
 
                   </mp-cells>

@@ -19,3 +19,6 @@
 .vcode-cells  .weui-label{
     width:80px;
 }
+.vcode-cells .weui-cells__tips{
+   color: red;
+}

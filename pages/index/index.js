@@ -59,7 +59,20 @@ Page({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
-      wx.redirectTo({ url: '../register/register' })
+      const data = {
+        nickname: e.detail.userInfo.nickName,
+        avatar: e.detail.userInfo.avatarUrl,
+        gender: e.detail.userInfo.gender
+      }
+      // debugger
+      app.myregister.userComplete(data, { Authorization: `Bearer ${app.globalData.token}`}).then(res=>{
+        // debugger
+      }).catch(err=>{
+        // debugger
+      })
+      wx.navigateTo({
+        url: '../register/register'
+      })
     }
     
   },
