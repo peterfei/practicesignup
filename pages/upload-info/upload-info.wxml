@@ -19,7 +19,7 @@
             </mp-cells>
             <mp-cells ext-class="id_card" footer="实践证书中会使用，请正确填写">
                 <mp-cell prop="id_card" title="身份证号" ext-class="">
-                    <input bindinput="formInputChange" data-field="idCard" class="weui-input" placeholder="请输入您的身份证号"/>
+                    <input bindinput="formInputChange" data-field="idCard" class="weui-input" placeholder="请输入您的身份证号"  bindblur="bindblurIdCard"/>
                 </mp-cell>
 
             </mp-cells>
@@ -43,7 +43,7 @@
             <mp-cells ext-class="vcode-cells" >
                 <mp-cell prop="school-date" title="入学年份" ext-class="">
                   <!-- <input bindinput="formInputChange" data-field="schoolDate" class="weui-input" placeholder="入学年份"/>  -->
-                  <picker bindchange="tap2date" mode="date" start="{{nowDate}}">
+                  <picker bindchange="tap2date" mode="date" start="{{nowDate}}" fields="month">
                     <view class="center">
                         <view wx:if="{{schoolDate == null}}" style="font-size:14px;text-align: right;color:#999; " disabled="true">请选择上门日期</view>
                         <view wx:else style="font-size:14px;text-align: right;color:#999; " disabled="true">{{schoolDate}}</view>
@@ -52,7 +52,11 @@
                   </picker>  
                 </mp-cell>
             </mp-cells>
-
+            <mp-cells ext-class="vcode-cells" >
+                <mp-cell prop="email" title="邮箱" ext-class="">
+                  <input bindinput="formInputChange" data-field="email" class="weui-input" placeholder="请输入您的邮箱"/>   
+                </mp-cell>
+            </mp-cells>
             <mp-cells title="上传您的证件照，用于制作实践证书">
                 <mp-cell show-error prop="idcard" title="图片上传" ext-class="">
                       <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="1" title=""></mp-uploader>

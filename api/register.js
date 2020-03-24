@@ -49,5 +49,12 @@ class register{
         return this._request.postRequest(this._baseUrl+"api/upload",obj,header).then(res=>res.data)
     }
 
+    /**
+     * 获取用户信息
+     */
+    userInfo(obj,header){
+        return this._request.getRequest(this._baseUrl+"api/users/info",obj,header).then(res=>res.data)
+    }
+
 }
 export default register

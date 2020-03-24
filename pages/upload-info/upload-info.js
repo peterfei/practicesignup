@@ -10,7 +10,7 @@ Page({
     ],
     mobile:null,
     schoolName:null,
-    schoolDate:null,
+    schoolDate:"2016-09",
     idCard:null,
     name: null,
     image: null,
@@ -20,6 +20,7 @@ Page({
 
     ],
     urlArr:[],
+    email:null,
     // date:null
   },
 
@@ -80,6 +81,7 @@ Page({
     },
 
     submitForm: function () {
+        console.log(`userInfo `,JSON.stringify(this.data.userInfo))
         const data = {
             name: this.data.name,
             gender:this.data.genderSelected,
@@ -88,18 +90,24 @@ Page({
             entrance_year:this.data.schoolDate,
             id_photo:this.data.image,
             mobile:this.data.mobile,
+            nickname:this.data.userInfo.nickName,
+            avatar:this.data.userInfo.avatarUrl,
+            email: this.data.email
           }
           console.log(`submitForm`,JSON.stringify(data))
       if (this.data.name != null && this.data.idCard != null && this.data.schoolName != null && this.data.schoolDate!=null){
+
+        this.checkIdCard(this.data.idCard)
         if (this.data.urlArr.length >= 1) {
 
-            app.myregister.userComplete(data, { Authorization: `Bearer ${app.globalData.token}`}).then(res=>{
+            app.myregister.userComplete(data, { Authorization: `Bearer ${app.globalData.token}`,'accept': 'application/json'}).then(res=>{
                         console.log(`======================\n`)
                         console.info(`提交后返回的结果:`,JSON.stringify(res))
                         console.log(`======================\n`)
-                        //wx.navigateTo({
-                        //  url: '../success/success',
-                        //})
+                        wx.setStorageSync("alreadyRegisters",true)
+                        wx.navigateTo({
+                          url: '../success/success',
+                        })
                   }).catch(err=>{
                     wx.showToast({
                         title: '提交资料失败,请联系管理员',
@@ -219,4 +227,20 @@ Page({
         schoolDate: e.detail.value,
       })
     },
+    bindblurIdCard:function(e){
+
+      this.checkIdCard(e.detail.value)
+    },
+
+    checkIdCard(idCard){
+        let reg = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/
+      if(!reg.test(idCard)){
+          wx.showToast({
+              title: '身份证格式错误,请重新输入',
+              icon: 'none',
+              duration: 2000,
+            })
+          return
+      }
+    }
 })

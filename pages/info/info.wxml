@@ -4,23 +4,23 @@
         <mp-cells  title="您已成功报名参加！">
             <mp-cell ext-class="page-bd-header">
                 <view class="page-bd-avator">
-                  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar_url}}" mode="cover"></image>
                 </view>
                 <view class="userinfo-nickname">
-                    <text>{{userInfo.nickName}}</text>
+                    <text>{{userInfo.nickname}}</text>
                 </view>
             </mp-cell>
-            <mp-cell value="真实姓名" footer="王小丫"></mp-cell>
-            <mp-cell value="身份证号码" footer="610215199901031762"></mp-cell>
-            <mp-cell value="性别" footer="女"></mp-cell>
-            <mp-cell value="所在院校" footer="江苏经贸职业技术学院"></mp-cell>
-            <mp-cell value="入学年份" footer="2018"></mp-cell>
-            <mp-cell value="邮箱" footer="17783983@qq.com"></mp-cell>
+            <mp-cell value="真实姓名" footer="{{userInfo.name}}"></mp-cell>
+            <mp-cell value="身份证号码" footer="{{userInfo.id_card}}"></mp-cell>
+            <mp-cell value="性别" footer="{{userInfo.gender}}"></mp-cell>
+            <mp-cell value="所在院校" footer="{{userInfo.school_name}}"></mp-cell>
+            <mp-cell value="入学年份" footer="{{userInfo.entrance_year}}"></mp-cell>
+            <mp-cell value="邮箱" footer="{{userInfo.email}}"></mp-cell>
             <mp-cell>
                 <view>您的证件照</view>
                 <view slot="footer">
 
-                    <image  class="userinfo-card" src="./card.png" mode="cover"></image>
+                    <image  class="userinfo-card" src="{{userInfo.id_photo_url}}" mode="cover"></image>
                 </view>
             </mp-cell>
 

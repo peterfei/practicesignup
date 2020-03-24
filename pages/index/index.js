@@ -18,6 +18,14 @@ Page({
   },
   onLoad: function () {
     console.log(`index onload`)
+      console.log(`%c==============================================`,"color:red")
+      console.log(`读取是否注册缓存`, wx.getStorageSync('alreadyRegisters'))
+      if(wx.getStorageSync('alreadyRegisters')){
+          this.setData({
+              "alreadyRegisters":wx.getStorageSync('alreadyRegisters')
+          })
+      }
+      console.log(`%c==============================================`,"color:red")
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -74,7 +82,7 @@ Page({
         url: '../register/register'
       })
     }
-    
+
   },
   showInfo: function () {
     wx.navigateTo({
