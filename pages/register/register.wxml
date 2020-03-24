@@ -10,7 +10,7 @@
                 <mp-cells ext-class="vcode-cells"  footer="{{footertxt}}">
 
                       <mp-cell prop="mobile" title="手机号" ext-class="weui-cell_vcode" >
-                          <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号" bindblur="bindblur"/>
+                          <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入手机号" bindblur="bindblur" type="number"/>
                           <view slot="footer" class="weui-vcode-btn" bindtap="send_verify_codes" >获取验证码</view>
                       </mp-cell>
 

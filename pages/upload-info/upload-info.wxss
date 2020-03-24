@@ -40,3 +40,7 @@
   /* background-color: blue; */
   display: flex;
 }
+
+.sex-cells radio{
+  margin-left: 15px;
+}

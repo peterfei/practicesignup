@@ -10,7 +10,7 @@ Page({
     ],
     mobile:null,
     schoolName:null,
-    schoolDate:"2016-09",
+    schoolDate:"2016",
     idCard:null,
     name: null,
     image: null,
@@ -151,7 +151,7 @@ Page({
   uplaodFile:function(files){
     console.log("files", files.tempFilePaths[0])
     const _this = this
-
+    _this.setData({ urlArr:[]})
     return new Promise((resolve, reject) => {
       let object = {};
       const uploadTask = wx.uploadFile({
@@ -167,6 +167,7 @@ Page({
           // debugger
           const url = JSON.parse(res.data)
           console.log(url)
+          
           _this.setData({
             urlArr: _this.data.urlArr.concat(url.url), //拼接多个路径到数组中
           });
@@ -242,5 +243,14 @@ Page({
             })
           return
       }
-    }
+    },
+
+  deleteImage(e){
+    console.log(`===========================`)
+    console.log(`e`,e)
+    console.log(`===========================`)
+    this.setData({
+      files: []
+    })
+  }
 })
