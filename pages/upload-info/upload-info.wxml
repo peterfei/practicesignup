@@ -42,7 +42,14 @@
 
             <mp-cells ext-class="vcode-cells" >
                 <mp-cell prop="school-date" title="入学年份" ext-class="">
-                  <input bindinput="formInputChange" data-field="schoolDate" class="weui-input" placeholder="入学年份"/>   
+                  <!-- <input bindinput="formInputChange" data-field="schoolDate" class="weui-input" placeholder="入学年份"/>  -->
+                  <picker bindchange="tap2date" mode="date" start="{{nowDate}}">
+                    <view class="center">
+                        <view wx:if="{{schoolDate == null}}" style="font-size:14px;text-align: right;color:#999; " disabled="true">请选择上门日期</view>
+                        <view wx:else style="font-size:14px;text-align: right;color:#999; " disabled="true">{{schoolDate}}</view>
+                        <!-- <image src="../images/xl.png" style="height:14px;width:14px;"></image> -->
+                      </view>
+                  </picker>  
                 </mp-cell>
             </mp-cells>
 

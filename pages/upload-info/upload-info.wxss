@@ -35,3 +35,8 @@
   /* margin-top: 20px; */
   margin:20px;
 }
+.center{
+  align-items: center;
+  /* background-color: blue; */
+  display: flex;
+}

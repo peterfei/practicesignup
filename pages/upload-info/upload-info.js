@@ -8,17 +8,26 @@ Page({
       { gender: 0, value: "女" }
 
     ],
-    mobile:"",
-    schoolName:"",
-    schoolDate:"",
-    idCard:"",
-    name:"",
-    image:"",
+    mobile:null,
+    schoolName:null,
+    schoolDate:null,
+    idCard:null,
+    name: null,
+    image: null,
     genderSelected:"",
-    files: []
+    files: [
+
+
+    ],
+    urlArr:[],
+    // date:null
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
+      this.setData({mobile:options.mobile})
+      console.log(`=====================\n`)
+      console.info(`跳转页面得到的手机号,${this.data.mobile}`)
+      console.log(`=====================\n`)
       if (app.globalData.userInfo) {
           this.setData({
             userInfo: app.globalData.userInfo,
@@ -77,8 +86,43 @@ Page({
             id_card:this.data.idCard,
             school_name:this.data.schoolName,
             entrance_year:this.data.schoolDate,
+            id_photo:this.data.image,
+            mobile:this.data.mobile,
           }
           console.log(`submitForm`,JSON.stringify(data))
+      if (this.data.name != null && this.data.idCard != null && this.data.schoolName != null && this.data.schoolDate!=null){
+        if (this.data.urlArr.length >= 1) {
+
+            app.myregister.userComplete(data, { Authorization: `Bearer ${app.globalData.token}`}).then(res=>{
+                        console.log(`======================\n`)
+                        console.info(`提交后返回的结果:`,JSON.stringify(res))
+                        console.log(`======================\n`)
+                        //wx.navigateTo({
+                        //  url: '../success/success',
+                        //})
+                  }).catch(err=>{
+                    wx.showToast({
+                        title: '提交资料失败,请联系管理员',
+                        icon: 'none',
+                        duration: 2000,
+                      })
+                      return false
+                  })
+        }else{
+          wx.showToast({
+            title: '请上传您的证件照',
+            icon: 'none',
+            duration: 2000,
+          })
+          return false
+        }
+      }else{
+        wx.showToast({
+          title: '请填完必填内容',
+          icon: 'none',
+          duration: 2000,
+        })
+      }
           //app.myregister.userComplete(data, { Authorization: `Bearer ${app.globalData.token}`}).then(res=>{
           //  // debugger
           //}).catch(err=>{
@@ -98,24 +142,38 @@ Page({
 
   uplaodFile:function(files){
     console.log("files", files.tempFilePaths[0])
+    const _this = this
+
     return new Promise((resolve, reject) => {
+      let object = {};
       const uploadTask = wx.uploadFile({
         url: 'http://practice_activity.test/api/upload',
         filePath: files.tempFilePaths[0],
         name: 'file',
+        header: {
+            "Content-Type": "multipart/form-data",
+            'accept': 'application/json',
+            'Authorization': `Bearer ${app.globalData.token}`
+        },
         success(res) {
           // debugger
           const url = JSON.parse(res.data)
           console.log(url)
+          _this.setData({
+            urlArr: _this.data.urlArr.concat(url.url), //拼接多个路径到数组中
+          });
+          object['urls'] = _this.data.urlArr;
+          object['path'] = url.path
           // console.log(files.tempFilePaths)
-          // resolve({
-          //   urls: url.urls
-          // })
+          //  resolve({
+          //    urls: url
+          //  })
+          resolve(object)
         }
       })
       setTimeout(() => {
         reject('some error')
-      }, 60000)
+      }, 5000)
     })
 
     },
@@ -150,5 +208,15 @@ Page({
     },
     uploadSuccess(e) {
         console.log('upload success', e.detail)
-    }
+        this.setData({
+          image: e.detail.path
+        })
+    },
+
+    tap2date(e) {
+      console.log(e.detail.value)
+      this.setData({
+        schoolDate: e.detail.value,
+      })
+    },
 })
