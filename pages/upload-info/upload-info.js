@@ -167,7 +167,7 @@ Page({
           // debugger
           const url = JSON.parse(res.data)
           console.log(url)
-          
+
           _this.setData({
             urlArr: _this.data.urlArr.concat(url.url), //拼接多个路径到数组中
           });
@@ -252,5 +252,8 @@ Page({
     this.setData({
       files: []
     })
-  }
+  },
+    back(){
+        wx.navigateBack()
+    }
 })

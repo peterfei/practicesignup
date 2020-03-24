@@ -64,7 +64,7 @@
             </mp-cells>
 
             <view class="btn-area">
-                <button class="weui-btn" type="default" >上一步</button>
+                <button class="weui-btn" type="default" bindtap="back" >上一步</button>
                 <button class="weui-btn" type="primary" bindtap="submitForm" >报名提交</button>
             </view>
         </mp-form>

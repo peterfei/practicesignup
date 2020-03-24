@@ -14,7 +14,7 @@ Page({
     console.log("===", JSON.stringify(app.globalData))
   },
 
-  submitForm:function(){
+  submitForm: async function(){
       if(this.data.verify_code==""||this.data.mobile==""){
         wx.showToast({
                       title: '手机号码或校验码不能为空',
