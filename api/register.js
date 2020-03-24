@@ -1,7 +1,8 @@
 import request from './request.js'
+import {baseUrl} from "../global.js"
 class register{
   constructor(){
-    this._baseUrl = "http://practice_activity.test/"
+    this._baseUrl =  baseUrl
     this._request = new request
     this._request.setErrorHandler(this.errorHander)
   }

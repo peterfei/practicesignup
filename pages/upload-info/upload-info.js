@@ -1,3 +1,4 @@
+import {baseUrl} from "../../global.js"
 //获取应用实例
 const app = getApp()
 Page({
@@ -155,7 +156,7 @@ Page({
     return new Promise((resolve, reject) => {
       let object = {};
       const uploadTask = wx.uploadFile({
-        url: 'http://practice_activity.test/api/upload',
+        url: `${baseUrl}api/upload`,
         filePath: files.tempFilePaths[0],
         name: 'file',
         header: {
