@@ -12,6 +12,29 @@ Page({
 
   onLoad: function() {
     console.log('===', JSON.stringify(app.globalData));
+    if (!this.checkToken()) {
+      wx.showToast({
+        title: 'Token已失效,将为您重新授权',
+        icon: 'none',
+        duration: 2000,
+      });
+      setTimeout(function() {
+        wx.reLaunch({
+          url: '../index/index',
+        });
+      }, 3000);
+    }
+  },
+
+  /**
+   * 校验token
+   */
+  checkToken: function() {
+    if (app.globalData.token != null) {
+      return true;
+    } else {
+      return false;
+    }
   },
 
   submitForm: async function() {
@@ -25,6 +48,18 @@ Page({
     }
 
     if (!this.checkMobileReg(this.data.mobile)) return;
+    if (!this.checkToken()) {
+      wx.showToast({
+        title: 'Token已失效,将为您重新授权',
+        icon: 'none',
+        duration: 2000,
+      });
+      setTimeout(function() {
+        wx.reLaunch({
+          url: '../index/index',
+        });
+      }, 3000);
+    }
     const check_exits = await this.checkMobileExists(this.data.mobile);
     console.log(`%c==>checkMobileExists==%s`, 'color:blue', check_exits);
     if (check_exits) return;
@@ -98,7 +133,7 @@ Page({
               icon: 'none',
               duration: 2000,
             });
-              reject(false)
+            reject(false);
           },
         );
     });
