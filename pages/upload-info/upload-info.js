@@ -95,7 +95,8 @@ Page({
       this.data.name != null &&
       this.data.idCard != null &&
       this.data.schoolName != null &&
-      this.data.schoolDate != null
+      this.data.schoolDate != null &&
+      this.data.email != null
     ) {
       this.checkIdCard(this.data.idCard);
       if (this.data.urlArr.length >= 1) {
