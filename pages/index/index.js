@@ -84,6 +84,16 @@ Page({
           // debugger
         })
         .catch(err => {
+          console.log(
+            '%c┍--------------------------------------------------------------┑',
+            `color:red`,
+          );
+          console.log(`err`, err);
+
+          console.log(
+            '%c┕--------------------------------------------------------------┙',
+            `color:red`,
+          );
           // debugger
         });
       wx.navigateTo({

@@ -65,22 +65,42 @@ Page({
           {mobile: mobile},
           {Authorization: `Bearer ${app.globalData.token}`},
         )
-        .then(res => {
-          console.log('blur res', JSON.stringify(res));
+        .then(
+          res => {
+            console.log('blur res', JSON.stringify(res));
 
-          if (res.exists) {
+            if (res.exists) {
+              wx.showToast({
+                title: res.message,
+                icon: 'none',
+                duration: 2000,
+              });
+              setTimeout(function() {
+                resolve(true);
+              }, 2000);
+            } else {
+              resolve(false);
+            }
+          },
+          err => {
+            console.log(
+              '%c┍--------------------------------------------------------------┑',
+              `color:red`,
+            );
+            console.log(`======>`, err);
+
+            console.log(
+              '%c┕--------------------------------------------------------------┙',
+              `color:red`,
+            );
             wx.showToast({
-              title: res.message,
+              title: '网络超时,请检查网络',
               icon: 'none',
               duration: 2000,
             });
-            setTimeout(function() {
-              resolve(true);
-            }, 2000);
-          } else {
-            resolve(false);
-          }
-        });
+              reject(false)
+          },
+        );
     });
   },
 

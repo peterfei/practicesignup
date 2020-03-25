@@ -22,6 +22,12 @@ App({
             this.globalData.token = res.access_token;
           },
           err => {
+            wx.showToast({
+              title: '网络超时,请检查网络',
+              icon: 'none',
+              duration: 2000,
+            });
+            return
             console.log('err', JSON.stringify(err));
           },
         );
