@@ -1,24 +1,23 @@
-@import "../../miniprogram/weui-wxss/dist/style/weui.wxss";
-.page{
-    /* flex:1; */
-    width:100%;
-    height:100%;
+@import '../../miniprogram/weui-wxss/dist/style/weui.wxss';
+.page {
+  /* flex:1; */
+  width: 100%;
+  height: 100%;
 }
-.page>.page-hd>.page-desc{
-    margin-top: 16px;
-    margin-bottom: 3px;
-    padding-left: 16px;
-    padding-right: 16px;
-    color: rgba(0,0,0,.5);
-    font-size: 14px;
+.page > .page-hd > .page-desc {
+  margin-top: 16px;
+  margin-bottom: 3px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
 }
-.page > .page__bd{
-
-    margin-top:50px;
+.page > .page__bd {
+  margin-top: 50px;
 }
-.vcode-cells  .weui-label{
-    width:80px;
+.vcode-cells .weui-label {
+  width: 80px;
 }
-.vcode-cells .weui-cells__tips{
-   color: red;
+.vcode-cells .weui-cells__tips {
+  color: red;
 }

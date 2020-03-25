@@ -1,11 +1,11 @@
 class request {
   constructor() {
-    this._header = {}
+    this._header = {};
   }
 
-/**
- * 设置统一的异常处理
- */
+  /**
+   * 设置统一的异常处理
+   */
   setErrorHandler(handler) {
     this._errorHandler = handler;
   }
@@ -14,28 +14,28 @@ class request {
    * GET类型的网络请求
    */
   getRequest(url, data, header = this._header) {
-    return this.requestAll(url, data, header, 'GET')
+    return this.requestAll(url, data, header, 'GET');
   }
 
   /**
    * DELETE类型的网络请求
    */
   deleteRequest(url, data, header = this._header) {
-    return this.requestAll(url, data, header, 'DELETE')
+    return this.requestAll(url, data, header, 'DELETE');
   }
 
   /**
    * PUT类型的网络请求
    */
   putRequest(url, data, header = this._header) {
-    return this.requestAll(url, data, header, 'PUT')
+    return this.requestAll(url, data, header, 'PUT');
   }
 
   /**
    * POST类型的网络请求
    */
   postRequest(url, data, header = this._header) {
-    return this.requestAll(url, data, header, 'POST')
+    return this.requestAll(url, data, header, 'POST');
   }
 
   /**
@@ -48,28 +48,28 @@ class request {
         data: data,
         header: header,
         method: method,
-        success: (res => {
+        success: res => {
           if (res.statusCode === 200) {
-          	//200: 服务端业务处理正常结束
-            resolve(res)
+            //200: 服务端业务处理正常结束
+            resolve(res);
           } else {
-          	//其它错误，提示用户错误信息
+            //其它错误，提示用户错误信息
             if (this._errorHandler != null) {
-            //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
-              this._errorHandler(res)
+              //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
+              this._errorHandler(res);
             }
-            reject(res)
+            reject(res);
           }
-        }),
-        fail: (res => {
+        },
+        fail: res => {
           if (this._errorHandler != null) {
-            this._errorHandler(res)
+            this._errorHandler(res);
           }
-          reject(res)
-        })
-      })
-    })
+          reject(res);
+        },
+      });
+    });
   }
 }
 
-export default request
+export default request;

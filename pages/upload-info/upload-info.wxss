@@ -1,46 +1,44 @@
-@import "../../miniprogram/weui-wxss/dist/style/weui.wxss";
-.page{
-    flex:1;
-
+@import '../../miniprogram/weui-wxss/dist/style/weui.wxss';
+.page {
+  flex: 1;
 }
-.page-hd-title{
+.page-hd-title {
   margin-top: 16px;
   margin-bottom: 3px;
   padding-left: 16px;
   padding-right: 16px;
-  color: rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
 }
-.page-hd-desc{
-    display:flex;
-    justify-content:space-around;
-    width:50%;
+.page-hd-desc {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
 }
-.page-hd-desc image{
-    border-radius:80%;
-    width:60px;
-    height:60px;
+.page-hd-desc image {
+  border-radius: 80%;
+  width: 60px;
+  height: 60px;
 }
-.page-hd-desc text{
+.page-hd-desc text {
   align-self: center;
   color: rgba(0, 0, 0, 0.911);
   font-size: 14px;
 }
-.btn-area{
+.btn-area {
   display: flex;
-  justify-content:space-between;
-
+  justify-content: space-between;
 }
-.btn-area .weui-btn{
+.btn-area .weui-btn {
   /* margin-top: 20px; */
-  margin:20px;
+  margin: 20px;
 }
-.center{
+.center {
   align-items: center;
   /* background-color: blue; */
   display: flex;
 }
 
-.sex-cells radio{
+.sex-cells radio {
   margin-left: 15px;
 }

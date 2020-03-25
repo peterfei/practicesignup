@@ -1,30 +1,28 @@
 /* pages/success/success.wxss */
-.page{
+.page {
   height: 100vh;
   /* background-color: blue; */
   display: flex;
   flex-direction: column;
-
 }
 
-.page-hd{
-    align-self:center;
-    display: flex;
-    /* background-color: red; */
-    width: 80%;
-    flex: 1;
+.page-hd {
+  align-self: center;
+  display: flex;
+  /* background-color: red; */
+  width: 80%;
+  flex: 1;
 }
-.page-hd-title{
+.page-hd-title {
   align-self: center;
   /* background-color: orange; */
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
   flex-direction: column;
 }
-.page-hd-title .page-bd-desc-text{
+.page-hd-title .page-bd-desc-text {
   align-self: center;
-
 }
-.page-bd{
-  flex:1;
+.page-bd {
+  flex: 1;
 }
