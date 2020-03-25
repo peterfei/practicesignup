@@ -19,8 +19,8 @@
                   <mp-cells ext-class="vcode-cells"  >
 
                       <mp-cell prop="verify_code" title="校验码" ext-class="cell_vcode" >
-                          <input bindinput="bind_verify_code" data-field="verify_code" class="weui-input" placeholder="请输入校验码" />
-                          
+                          <input bindinput="bind_verify_code" data-field="verify_code" class="weui-input" placeholder="请输入校验码" type="number" />
+
                       </mp-cell>
 
                   </mp-cells>

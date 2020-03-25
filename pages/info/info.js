@@ -2,6 +2,7 @@ const app = getApp();
 Page({
   data: {
     userInfo: {},
+    urls:[]
   },
 
   onLoad: function() {
@@ -23,7 +24,14 @@ Page({
         console.log(`%c===================================`, 'color:red');
         this.setData({
           userInfo: res,
+          urls: this.data.urls.concat(res.id_photo_url)
         });
       });
   },
+    previewImage:function(){
+        wx.previewImage({
+            current:"",
+            urls:this.data.urls
+        })
+    }
 });

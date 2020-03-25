@@ -1,2 +1,2 @@
-const baseUrl = "http://practice_activity.test/"
+const baseUrl = "http://bm.sunpun.com/"
 export {baseUrl}

@@ -12,15 +12,16 @@
             </mp-cell>
             <mp-cell value="真实姓名" footer="{{userInfo.name}}"></mp-cell>
             <mp-cell value="身份证号码" footer="{{userInfo.id_card}}"></mp-cell>
+            <mp-cell value="电话号码" footer="{{userInfo.mobile}}"></mp-cell>
             <mp-cell value="性别" footer="{{userInfo.gender}}"></mp-cell>
             <mp-cell value="所在院校" footer="{{userInfo.school_name}}"></mp-cell>
             <mp-cell value="入学年份" footer="{{userInfo.entrance_year}}"></mp-cell>
             <mp-cell value="邮箱" footer="{{userInfo.email}}"></mp-cell>
             <mp-cell>
-                <view>您的证件照</view>
+                <view>证件照</view>
                 <view slot="footer">
 
-                    <image  class="userinfo-card" src="{{userInfo.id_photo_url}}" mode="cover"></image>
+                    <image  class="userinfo-card" src="{{userInfo.id_photo_url}}" mode="cover" bindtap="previewImage"></image>
                 </view>
             </mp-cell>
 
