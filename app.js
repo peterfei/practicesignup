@@ -20,6 +20,24 @@ App({
             // debugger
             // this.globalData.userInfo = res
             this.globalData.token = res.access_token;
+            this.myregister
+              .userInfo(
+                {},
+                {
+                  accept: 'application/json',
+                  Authorization: `Bearer ${res.access_token}`,
+                },
+              )
+              .then(res => {
+                if (res.mobile!=null){
+                  wx.setStorageSync("alreadyRegisters", true)
+                }else{
+                  wx.setStorageSync("alreadyRegisters", false)
+                }
+                
+              },err=>{
+                wx.setStorageSync("alreadyRegisters", false)
+              });
           },
           err => {
             wx.showToast({

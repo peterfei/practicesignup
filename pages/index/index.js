@@ -1,4 +1,5 @@
 //index.js
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 //获取应用实例
 const app = getApp();
 
@@ -16,22 +17,16 @@ Page({
       url: '../logs/logs',
     });
   },
-  onLoad: function() {
+    
+  onLoad: async function() {
     console.log(`index onload`);
-    console.log(
-      `%c==============================================`,
-      'color:red',
-    );
-    console.log(`读取是否注册缓存`, wx.getStorageSync('alreadyRegisters'));
+    console.log(`alreadyRegister storage is ${wx.getStorageSync('alreadyRegisters')}`)
     if (wx.getStorageSync('alreadyRegisters')) {
       this.setData({
-        alreadyRegisters: wx.getStorageSync('alreadyRegisters'),
+        alreadyRegisters:true,
       });
     }
-    console.log(
-      `%c==============================================`,
-      'color:red',
-    );
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,8 +37,7 @@ Page({
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        // debugger
+      app.userInfoReadyCallback = async res => {
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true,

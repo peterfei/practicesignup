@@ -30,8 +30,8 @@
   justify-content: space-between;
 }
 .btn-area .weui-btn {
-  /* margin-top: 20px; */
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .center {
   align-items: center;

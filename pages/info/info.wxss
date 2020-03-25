@@ -47,3 +47,7 @@
     /*height:calc(100vh - 120px);*/
     flex-direction: column;
 }
+.btn-area .weui-btn{
+    margin-top:20px;
+    margin-bottom:20px;
+}

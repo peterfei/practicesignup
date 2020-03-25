@@ -4,7 +4,8 @@
     "mp-form": "../../miniprogram/form/form",
     "mp-cells": "../../miniprogram/cells/cells",
     "mp-cell": "../../miniprogram/cell/cell",
-    "mp-uploader": "../../miniprogram/uploader/uploader"
+    "mp-uploader": "../../miniprogram/uploader/uploader",
+    "mp-icon": "../../miniprogram/icon/icon"
   },
   "navigationBarTitleText": "上传资质"
 }

@@ -21,3 +21,14 @@
 .vcode-cells .weui-cells__tips {
   color: red;
 }
+.weui-cell-vcode button.weui-vcode-btn{
+    width:95px;
+    font-weight:10;
+    height:30px;
+    /*font-size:12px;*/
+}
+
+.btn-area .weui-btn{
+    margin-top:20px;
+    margin-bottom:20px;
+}

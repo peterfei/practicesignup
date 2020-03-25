@@ -1,2 +1,2 @@
-const baseUrl = "http://bm.sunpun.com/"
+const baseUrl = "https://bm.sunpun.com/"
 export {baseUrl}

@@ -44,7 +44,7 @@
                 <mp-cell prop="school-date" title="入学年份" ext-class="">
                   <picker bindchange="tap2date" mode="date" start="{{nowDate}}" fields="year">
                     <view class="center">
-                        <view wx:if="{{schoolDate == null}}" style="font-size:14px;text-align: right;color:#999; " disabled="true">请选择上门日期</view>
+                        <view wx:if="{{schoolDate == null}}" style="font-size:14px;text-align: right;color:#999; " disabled="true">请选择入学年份</view>
                         <view wx:else style="text-align: right;" disabled="true">{{schoolDate}}</view>
                         <!-- <image src="../images/xl.png" style="height:14px;width:14px;"></image> -->
                       </view>
@@ -63,7 +63,7 @@
             </mp-cells>
 
             <view class="btn-area">
-                <button class="weui-btn" type="default" bindtap="back" >上一步</button>
+                <!--<button class="weui-btn" type="default" bindtap="back" >上一步</button>-->
                 <button class="weui-btn" type="primary" bindtap="submitForm" >报名提交</button>
             </view>
         </mp-form>
