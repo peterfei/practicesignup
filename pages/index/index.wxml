@@ -22,15 +22,20 @@
      
       </block>
         <block wx:else>
+            <view  class="register">
+              <image class="register-icon" src="./register.png" mode="aspectFill" />
+            </view>
+            <mp-msg type="" title="{{showAuthText}}" ext-class="register">
             
-            <mp-msg type="info" title="{{showAuthText}}">
+            
             
             <view slot="extend">
                 <view>欢迎参加电商支持企业复工产教融合实践活动！为了更好地获取活动详情与后续证书等，需要您完成手机绑定，方可完成注册。</view>
                 
             </view>
             <view slot="handle">
-                <button   class="weui-btn" type="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确认授权 </button>
+                <button   class="weui-btn" type="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 立即注册 </button>
+
                 <button   class="weui-btn" type="primary" wx:if="{{canIUse&&hasUserInfo}}" bindtap="gotoRegister"> 继续注册 </button>
             </view>
             

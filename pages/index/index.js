@@ -9,7 +9,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     alreadyRegisters: false,
-    showAuthText: '请先授权',
+    showAuthText: '',
   },
   //事件处理函数
   bindViewTap: function() {

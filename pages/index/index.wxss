@@ -26,3 +26,11 @@
 .page-bd {
   flex: 1;
 }
+
+.register-icon{
+  width:80px;
+  height:80px;
+}
+.register{
+  align-self: center;
+}
