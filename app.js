@@ -29,8 +29,9 @@ App({
                 },
               )
               .then(res => {
-                if (res.mobile!=null){
+                if (res.is_completed==1){
                   wx.setStorageSync("alreadyRegisters", true)
+                  this.globalData.is_completed = 1
                 }else{
                   wx.setStorageSync("alreadyRegisters", false)
                 }
@@ -76,5 +77,32 @@ App({
   globalData: {
     userInfo: null,
     token: null,
+    is_completed:0
+  },
+  checkCompleted: function (is_completed) {
+
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`
+    )
+    console.log(`========>是否完成注册======>`, is_completed)
+
+    console.log(
+    '%c┕--------------------------------------------------------------┙',
+      `color:red`
+    )
+    if (is_completed == 1) {
+      wx.showToast({
+        title: "您已完成报名,正在为您跳转至个人信息页",
+        icon: 'none',
+        duration: 2000,
+      });
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '../../pages/info/info',
+        })
+      }, 2000)
+
+    }
   },
 });

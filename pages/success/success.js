@@ -6,7 +6,7 @@ Page({
   },
 
   onLoad: function () {
-    
+    app.checkCompleted(app.globalData.is_completed)
   },
 
   showInfo:function(){

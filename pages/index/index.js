@@ -17,15 +17,20 @@ Page({
       url: '../logs/logs',
     });
   },
+  onReady:function(){
     
-  onLoad: async function() {
-    console.log(`index onload`);
     console.log(`alreadyRegister storage is ${wx.getStorageSync('alreadyRegisters')}`)
     if (wx.getStorageSync('alreadyRegisters')) {
+      app.checkCompleted(1)
       this.setData({
-        alreadyRegisters:true,
+        alreadyRegisters: true,
       });
     }
+  },
+  onLoad: async function() {
+    console.log(`index onload`);
+    
+    
 
     if (app.globalData.userInfo) {
       this.setData({

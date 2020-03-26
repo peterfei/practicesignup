@@ -6,6 +6,7 @@ Page({
   },
 
   onLoad: function() {
+    
     console.log(`%c===================================`, 'color:red');
     console.log(`user token ${app.globalData.token}`);
     console.log(`%c===================================`, 'color:red');

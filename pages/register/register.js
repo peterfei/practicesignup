@@ -15,6 +15,7 @@ Page({
   },
 
   onLoad: function() {
+    app.checkCompleted(app.globalData.is_completed)
     console.log('===', JSON.stringify(app.globalData));
     if (!this.checkToken()) {
       wx.showToast({

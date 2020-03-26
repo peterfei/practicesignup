@@ -14,6 +14,8 @@
   display: flex;
   justify-content: space-around;
   width: 50%;
+  margin-bottom: 10px;
+
 }
 .page-hd-desc image {
   border-radius: 80%;
@@ -41,4 +43,7 @@
 
 .sex-cells radio {
   margin-left: 15px;
+}
+.input-placeholder{
+  color:rgb(216, 213, 213);
 }
