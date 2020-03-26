@@ -20,7 +20,7 @@ Page({
     email: null,
     // date:null
   },
-  
+
   onLoad: function(options) {
     app.checkCompleted(app.globalData.is_completed)
     this.setData({mobile: options.mobile});
@@ -110,7 +110,7 @@ Page({
             console.log(`======================\n`);
             console.info(`提交后返回的结果:`, JSON.stringify(res));
             console.log(`======================\n`);
-            // wx.setStorageSync('alreadyRegisters', true);
+            wx.setStorageSync('alreadyRegisters', true);
             wx.reLaunch({
               url: '../success/success',
             });

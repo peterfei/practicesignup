@@ -2,11 +2,11 @@
 const app = getApp()
 Page({
   data: {
-    
-  },
 
+  },
   onLoad: function () {
-    app.checkCompleted(app.globalData.is_completed)
+      //app.checkUserToken()
+    /*app.checkCompleted(app.globalData.is_completed)*/
   },
 
   showInfo:function(){
@@ -14,6 +14,6 @@ Page({
       url: '../info/info',
     })
   }
-  
+
 
 })

@@ -17,21 +17,85 @@ Page({
       url: '../logs/logs',
     });
   },
-  onReady:function(){
-    
-    console.log(`alreadyRegister storage is ${wx.getStorageSync('alreadyRegisters')}`)
+  onShow: async function() {
+    //if (wx.getStorageSync('alreadyRegisters')) {
+    //  app.checkCompleted(1);
+    //  this.setData({
+    //    alreadyRegisters: true,
+    //  });
+    //}
+  },
+  onReady: async function() {
+    console.log(
+      `alreadyRegister storage is ${wx.getStorageSync('alreadyRegisters')}`,
+    );
+    //if (wx.getStorageSync('alreadyRegisters')) {
+    //  app.checkCompleted(1);
+    //  this.setData({
+    //    alreadyRegisters: true,
+    //  });
+    //}
+  },
+  onLoad: async function() {
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`,
+    );
+    const token = await wx.getStorageSync('userToken');
+    console.log(`Index on Show  check userToken==========`, token);
+
+    console.log(
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
+    const user = await app.myregister
+      .userInfo(
+        {},
+        {
+          accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      )
+      .then(
+        res => {},
+        err => {
+          if (err.statusCode == 401) {
+            this.setData({
+              alreadyRegisters: false,
+            });
+            wx.setStorageSync('alreadyRegisters', false);
+            wx.setStorageSync('userToken', '');
+            console.log(
+              `%c=============Token已失效================`,
+              'color:red',
+            );
+            app.onLaunch(); //重新获取Token
+            console.log(
+              `%c=============重新获取Token================`,
+              'color:blue',
+            );
+          }
+        },
+      );
+    console.log(`index onload`);
+
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`,
+    );
+    console.log(`%c=======>%s`, 'color:blue', JSON.stringify(user));
+    console.log(`%c=======>%s`, 'color:blue', app.globalData.is_completed);
+
+    console.log(
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
     if (wx.getStorageSync('alreadyRegisters')) {
-      app.checkCompleted(1)
+      app.checkCompleted(app.globalData.is_completed);
       this.setData({
         alreadyRegisters: true,
       });
     }
-  },
-  onLoad: async function() {
-    console.log(`index onload`);
-    
-    
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

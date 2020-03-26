@@ -20,6 +20,7 @@ App({
             // debugger
             // this.globalData.userInfo = res
             this.globalData.token = res.access_token;
+            wx.setStorageSync('userToken', res.access_token);
             this.myregister
               .userInfo(
                 {},
@@ -28,17 +29,20 @@ App({
                   Authorization: `Bearer ${res.access_token}`,
                 },
               )
-              .then(res => {
-                if (res.is_completed==1){
-                  wx.setStorageSync("alreadyRegisters", true)
-                  this.globalData.is_completed = 1
-                }else{
-                  wx.setStorageSync("alreadyRegisters", false)
-                }
-                
-              },err=>{
-                wx.setStorageSync("alreadyRegisters", false)
-              });
+              .then(
+                res => {
+                  if (res.is_completed == 1) {
+                    wx.setStorageSync('alreadyRegisters', true);
+                    this.globalData.is_completed = 1;
+                  } else {
+                    wx.setStorageSync('alreadyRegisters', false);
+                    this.globalData.is_completed = 0;
+                  }
+                },
+                err => {
+                  wx.setStorageSync('alreadyRegisters', false);
+                },
+              );
           },
           err => {
             wx.showToast({
@@ -46,8 +50,7 @@ App({
               icon: 'none',
               duration: 2000,
             });
-            return
-            console.log('err', JSON.stringify(err));
+            return;
           },
         );
       },
@@ -77,32 +80,58 @@ App({
   globalData: {
     userInfo: null,
     token: null,
-    is_completed:0
+    is_completed: 0,
   },
-  checkCompleted: function (is_completed) {
-
+  checkCompleted: function(is_completed) {
     console.log(
       '%c┍--------------------------------------------------------------┑',
-      `color:red`
-    )
-    console.log(`========>是否完成注册======>`, is_completed)
+      `color:red`,
+    );
+    console.log(`========>是否完成注册======>`, is_completed);
 
     console.log(
-    '%c┕--------------------------------------------------------------┙',
-      `color:red`
-    )
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
     if (is_completed == 1) {
       wx.showToast({
-        title: "您已完成报名,正在为您跳转至个人信息页",
+        title: '您已完成报名,正在为您跳转至个人信息页',
         icon: 'none',
         duration: 2000,
       });
-      setTimeout(function () {
+      setTimeout(function() {
         wx.reLaunch({
           url: '../../pages/info/info',
-        })
-      }, 2000)
-
+        });
+      }, 2000);
     }
+  },
+  checkUserToken: function(token) {
+    this.myregister
+      .userInfo(
+        {},
+        {
+          accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      )
+      .then(
+        res => {},
+        err => {
+          if (err.statusCode == 401) {
+            wx.setStorageSync('alreadyRegisters', false);
+            wx.setStorageSync('userToken', '');
+            console.log(
+              `%c=============Token已失效================`,
+              'color:red',
+            );
+            this.onLaunch(); //重新获取Token
+            console.log(
+              `%c=============重新获取Token================`,
+              'color:blue',
+            );
+          }
+        },
+      );
   },
 });

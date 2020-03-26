@@ -15,7 +15,7 @@ Page({
   },
 
   onLoad: function() {
-    app.checkCompleted(app.globalData.is_completed)
+    app.checkCompleted(app.globalData.is_completed);
     console.log('===', JSON.stringify(app.globalData));
     if (!this.checkToken()) {
       wx.showToast({
@@ -76,6 +76,8 @@ Page({
   },
 
   submitForm: async function() {
+    //this.data.mobile = ""
+
     if (this.data.verify_code == '' || this.data.mobile == '') {
       wx.showToast({
         title: '手机号码或校验码不能为空',
@@ -107,6 +109,9 @@ Page({
         {Authorization: `Bearer ${app.globalData.token}`},
       )
       .then(res => {
+        this.setData({
+          verify_code: '',
+        });
         console.log('verify submit', JSON.stringify(res));
         wx.navigateTo({
           url: '../upload-info/upload-info?mobile=' + this.data.mobile,
