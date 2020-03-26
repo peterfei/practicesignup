@@ -7,7 +7,10 @@
                   <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar_url}}" mode="cover"></image>
                 </view>
                 <view class="userinfo-nickname">
-                    <text>{{userInfo.nickname}}</text>
+                    <view class="nickname">
+                        <text>{{userInfo.nickname}}</text>
+                    </view>
+                    
                 </view>
             </mp-cell>
             <mp-cell value="真实姓名" footer="{{userInfo.name}}"></mp-cell>

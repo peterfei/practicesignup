@@ -38,7 +38,14 @@
 
 .userinfo-nickname{
     flex:1;
+    flex-direction: column;
+    display: flex;
+
     /*background-color:blue;*/
+}
+.userinfo-nickname .nickname{
+  align-self: center;
+
 }
 .page-bd-header{
     flex:1;

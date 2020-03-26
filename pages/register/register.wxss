@@ -25,6 +25,7 @@
     width:95px;
     font-weight:10;
     height:30px;
+    color:#000;
     /*font-size:12px;*/
 }
 

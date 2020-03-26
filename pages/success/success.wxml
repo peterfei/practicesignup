@@ -10,10 +10,10 @@
           </view>
           <view slot="footer">
               <view class="weui-footer__links">
-                  <navigator url="" class="weui-footer__link">i博导</navigator>
+                  <navigator url="" class="weui-footer__link">安徽慢慢来信息科技有限公司</navigator>
               </view>
               <view class="weui-footer__text">
-                Copyright © 2008-2020 ibodao.com
+                Copyright © 2008-2020 
               </view>
           </view>
         </mp-msg> 
